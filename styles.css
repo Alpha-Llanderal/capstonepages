@@ -1,0 +1,150 @@
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+/*********** TOP BANNER / HEADER **********/
+.header {
+  background-color: #004a9f;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.header-logo img {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+}
+
+.portal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.portal-logo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+.portal-title {
+  margin-top: 1.25rem;
+  font-size: 1.5rem;
+  color: #004a9f;
+  font-weight: bold;
+}
+
+.portal-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.875rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 576px) {
+  .portal-title {
+    font-size: 1.25rem;
+  }
+
+  .portal-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/*********** FOOTER **********/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer .contact-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer .contact-details i {
+    color: #004a9f;
+    margin-right: 8px;
+  }
+
+  .footer a {
+    color: #004a9f;
+    text-decoration: none;
+  }
+
+
+/********** RESPONSIVENESS FOOTER **********/
+@media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  /********** SIDEBAR **********/
+  #sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    margin-left: -250px;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd;
+}
+
+#sidebar-wrapper .list-group {
+    width: 100%;
+}
+
+/* Page content styles */
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Responsive behavior */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+}
+
+/********** LANDING PAGE **********/
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+  }
