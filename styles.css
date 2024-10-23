@@ -5,6 +5,7 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
 /*********** TOP BANNER / HEADER **********/
 .header {
   background-color: #004a9f;
@@ -105,31 +106,37 @@
 
 
 /********** RESPONSIVENESS FOOTER **********/
-@media (max-width: 768px) {
-    .footer {
+@media (max-width: 576px) {
+  .footer .contact-details {
       flex-direction: column;
-      text-align: center;
-    }
+      align-items: flex-start;
   }
+  .footer .contact-details div {
+      margin-bottom: 0.5rem;
+  }
+}
+
   
   /********** SIDEBAR **********/
   #sidebar-wrapper {
     min-height: 100vh;
-    width: 250px;
+    width: 300px;
     margin-left: -250px;
     background-color: #f8f9fa;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #ddd;
 }
 
-#sidebar-wrapper .list-group {
+  #sidebar-wrapper .list-group {
     width: 100%;
 }
 
-/* Page content styles */
+/********** PAGE CONTENT **********/
 #page-content-wrapper {
     width: 100%;
     padding: 20px;
+    text-align: center;
+    height: 100%;
 }
 
 /* Responsive behavior */
