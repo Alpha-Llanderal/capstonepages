@@ -9,22 +9,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <header class="header">
+    <header class="bg-primary text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h5 mb-0">HealthHub Connect</h1>
+            <div>
                 <span>Hi, Alpha</span>
                 <button class="btn btn-outline-light rounded-circle ms-2">AW</button>
             </div>
         </div>
     </header>
 
-    <main class="col-md-9 ms-sm-auto col-lg-12 px-md-2">
-        <div class="pt-3 pb-2 mb-3 border-bottom">
-            <div class="alert alert-info" role="alert">
-                In an effort to provide the most efficient and effective patient care, please update your information prior to your visit.
+<!-------------------------------------------------- BODY -------------------------------------------------->
+    <div class="container my-1">
+        <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-info mt-3 text-center" role="alert">
+                        In an effort to provide the most efficient and effective patient care, please update your information prior to your visit.
+                    </div>
+                </div>
             </div>
         </div>
     
     <div class="container my-4">
-        <div class="accordion" id="personalAccordion">
+        <div class="accordion" id="medicalAccordion">
             <!-- Personal Information -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingPersonal">
@@ -32,13 +40,14 @@
                         <i class="bi bi-person-badge me-2"></i>Personal Information
                     </button>
                 </h2>
-                <div id="collapsePersonal" class="accordion-collapse collapse show" aria-labelledby="headingPersonal" data-bs-parent="#personalAccordion">
+                <div id="collapsePersonal" class="accordion-collapse collapse show" aria-labelledby="headingPersonal" data-bs-parent="#medicalAccordion">
                     <div class="accordion-body">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="https://via.placeholder.com/100" class="rounded-circle" alt="Profile Picture">
+                                    <img src="https://via.placeholder.com/150" class="rounded-circle" alt="Profile Picture">
                                 </div>
+                                
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
@@ -57,26 +66,28 @@
                                             <label for="email" class="form-label">Email *</label>
                                             <input type="email" class="form-control" id="email" value="alpha.llanderal.work@gmail.com">
                                         </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="password" class="form-label">Password *</label>
+                                            <input type="text" class="form-control" id="password" value="xxxxx">
+                                        </div>
                                         <div class="col-md-12 d-flex justify-content-end">
                                             <button class="btn btn-primary">Save Changes</button>
                                         </div>
                                 </div>
                             </div>
+
                             <hr class="my-4">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h5>Addresses</h5>
+                                    <h5>Address</h5>
                                     <button class="btn btn-outline-primary mt-2">+ Add address</button>
                                     <p class="mt-2">No Address</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>Phone Numbers</h5>
+                                    <h5>Phone Number</h5>
                                     <button class="btn btn-outline-primary mt-2">+ Add number</button>
                                     <p class="mt-2">No Phone Number</p>
                                 </div>
-                            </div>
-                            <div class="d-flex justify-content-end mt-4">
-                                <a href="#collapseInsurance" class="text-decoration-none" data-bs-toggle="collapse" data-bs-target="#collapseInsurance">Next: Insurance &gt;</a>
                             </div>
                         </div>
                     </div>
@@ -94,12 +105,9 @@
                     <div class="accordion-body">
                         <h4>Insurance</h4>
                         <button class="btn btn-primary mb-3">Add Primary Insurance</button>
-                        <p>You don’t have any insurance policy on file. Please add primary insurance or set to “Self-pay” by confirming “I am Self-pay”.</p>
+                        <p>If you don’t have any insurance policy on file. Please add primary insurance or set to “Self-pay” by confirming “I am Self-pay”.</p>
                         <button class="btn btn-success mb-3"><i class="bi bi-check-circle"></i> I am Self-pay</button>
-                        <div class="mt-4">
-                            <a href="#" class="text-decoration-none">&larr; Back to home page</a>
-                        </div>
-                    </div>
+          </div>
                 </div>
             </div>
             
@@ -112,7 +120,81 @@
                 </h2>
                 <div id="collapseAppointments" class="accordion-collapse collapse" aria-labelledby="headingAppointments" data-bs-parent="#medicalAccordion">
                     <div class="accordion-body">
-                        Upcoming Appointments, Appointment History
+                        <!-- Tabs for Upcoming and History -->
+                    <ul class="nav nav-tabs" id="appointmentsTab" role="tablist">
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="upcoming-tab" data-bs-toggle="tab"
+                                data-bs-target="#upcoming" type="button" role="tab" aria-controls="upcoming"
+                                aria-selected="true">Upcoming</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history"
+                                type="button" role="tab" aria-controls="history" aria-selected="false">History</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="appointmentsTabContent">
+                        <div class="tab-pane fade show active p-3" id="upcoming" role="tabpanel"
+                            aria-labelledby="upcoming-tab">
+                            <h3>Upcoming Appointments</h3>
+                            <div class="table-responsive" id="upcomingAppointmentsTable">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Doctor</th>
+                                            <th scope="col">Reason</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="noUpcomingAppointments">
+                                            <td colspan="3">There are no upcoming appointments.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Appointment History -->
+                        <div class="tab-pane fade p-3" id="history" role="tabpanel" aria-labelledby="history-tab">
+                            <h3>Appointment History</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Doctor</th>
+                                            <th scope="col">Reason</th>
+                                            <th scope="col">Outcome</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>March 15, 2023</td>
+                                            <td>Dr. Smith</td>
+                                            <td>Routine Check-up</td>
+                                            <td>Follow-up in 6 months</td>
+                                        </tr>
+                                        <tr>
+                                            <td>January 10, 2023</td>
+                                            <td>Dr. Brown</td>
+                                            <td>Blood Pressure Check</td>
+                                            <td>Medication Adjusted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>October 5, 2022</td>
+                                            <td>Dr. White</td>
+                                            <td>Flu Symptoms</td>
+                                            <td>Prescribed Antibiotics</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3" id="requestAppointmentButton">
+                        <i class="bi bi-plus-circle"></i> Request an Appointment
+                    </button>
                     </div>
                 </div>
             </div>
@@ -126,13 +208,95 @@
                 </h2>
                 <div id="collapseMedical" class="accordion-collapse collapse" aria-labelledby="headingMedical" data-bs-parent="#medicalAccordion">
                     <div class="accordion-body">
-                        Medical Conditions, Medications, Allergies, Pharmacies, Social History, Family History, Surgery History
+                        <!-- Tabs for Medical History and Laboratory and Tests -->
+                    <ul class="nav nav-tabs" id="medicalTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="medical-history-tab" data-bs-toggle="tab"
+                                data-bs-target="#medical-history" type="button" role="tab" aria-controls="medical-history"
+                                aria-selected="true">Medical History</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="laboratory-tests-tab" data-bs-toggle="tab"
+                                data-bs-target="#laboratory-tests" type="button" role="tab" aria-controls="laboratory-tests"
+                                aria-selected="false">Laboratory and Tests</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="medicalTabContent">
+                        <div class="tab-pane fade show active p-3" id="medical-history" role="tabpanel"
+                            aria-labelledby="medical-history-tab">
+                            <h3>Medical History</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Condition</th>
+                                            <th scope="col">Treatment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>January 15, 2023</td>
+                                            <td>Hypertension</td>
+                                            <td>Medication Prescribed</td>
+                                        </tr>
+                                        <tr>
+                                            <td>March 10, 2022</td>
+                                            <td>Back Pain</td>
+                                            <td>Physical Therapy</td>
+                                        </tr>
+                                        <tr>
+                                            <td>June 5, 2021</td>
+                                            <td>Allergic Reaction</td>
+                                            <td>Antihistamines</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade p-3" id="laboratory-tests" role="tabpanel" aria-labelledby="laboratory-tests-tab">
+                            <h3>Laboratory Uploads</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date Uploaded</th>
+                                            <th scope="col">Lab Test</th>
+                                            <th scope="col">File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>February 20, 2023</td>
+                                            <td>Blood Test</td>
+                                            <td><a href="#">View Report</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>April 5, 2023</td>
+                                            <td>X-Ray</td>
+                                            <td><a href="#">View Image</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>July 12, 2023</td>
+                                            <td>ECG</td>
+                                            <td><a href="#">View Report</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3" id="addRecordButton">
+                        <i class="bi bi-plus-circle"></i> Add Record
+                    </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+   </div> 
+</div> 
+
 <!-------------------------------------------------- FOOTER -------------------------------------------------->
 <footer class="footer">
     <div class="container">
