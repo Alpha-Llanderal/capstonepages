@@ -12,10 +12,8 @@
     <header class="bg-primary text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="h5 mb-0">Evansville Psychiatric Associates</h1>
-            <div>
-                <span>Hi, Alpha</span>
-                <button class="btn btn-outline-light rounded-circle ms-2">AW</button>
-            </div>
+            <button class="btn btn-outline-light" onclick="logout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+            <h1 class="h5 mb-0">Evansville Psychiatric Associates</h1>
         </div>
     </header>
     
@@ -145,27 +143,10 @@
                                             </div>
                                         </div>
                                     </div>
- <!-- Insurance Details Section Start -->
- <div class="accordion-item">
-    <h2 class="accordion-header" id="headingInsurance">
-        <button class="accordion-button collapsed bg-light text-dark fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsurance" aria-expanded="false" aria-controls="collapseInsurance">
-            <i class="bi bi-shield-check me-2"></i>Insurance
-        </button>
-    </h2>
-    <div id="collapseInsurance" class="accordion-collapse collapse" aria-labelledby="headingInsurance" data-bs-parent="#personalAccordion">
-        <div class="accordion-body">
-            <p>If you don’t have any insurance policy on file, please add primary insurance or set to “Self-pay” by confirming “I am Self-pay”.</p>
-            <button class="btn btn-primary mb-3">Add Primary Insurance</button>
-            <button class="btn btn-success mb-3"><i class="bi bi-check-circle"></i> I am Self-pay</button>
-        </div>
-    </div>
-</div>
-<!-- Insurance Details Section End -->
-</div>
-</div>
-<!-------------------------------------------------- PROFILE SECTION ENDS HERE -------------------------------------------------->
-
-<!-------------------------------------------------- APPOINTMENTS SECTION STARTS HERE -------------------------------------------------->                    </div>
+                                </div>
+                            </div>
+                            <!-- Profile Details Section End -->
+                        </div>
                     </div>
                     <div id="appointmentsCard" class="card d-none">
                         <div class="card-body">
@@ -354,6 +335,13 @@
             });
             // Show the selected card
             document.getElementById(cardId).classList.remove('d-none');
+        }
+    </script>
+    <script>
+        function logout() {
+            // Perform logout actions here
+            alert('You have been logged out successfully.');
+            window.location.href = 'login.html'; // Redirect to the login page
         }
     </script>
 </body>

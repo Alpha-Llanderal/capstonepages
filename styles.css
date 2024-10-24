@@ -7,15 +7,6 @@
 }
 
 /*********** TOP BANNER / HEADER **********/
-.header {
-  background-color: #004a9f;
-  padding: 1rem;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .header-logo img {
   width: 100%;
   max-width: 50px;
@@ -74,50 +65,76 @@
   }
 }
 
-/*********** FOOTER **********/
+/******************************************************* FOOTER ******************************************************/
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f8f9fa;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  z-index: 1000;
+  padding: 10px 15px; /* Default padding */
 
-  .footer .contact-details {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  .footer .contact-details i {
-    color: #004a9f;
-    margin-right: 8px;
-  }
+ .footer a {
+   color: #004a9f;
+   text-decoration: none;
+}
 
-  .footer a {
-    color: #004a9f;
-    text-decoration: none;
-  }
+ .footer .contact-details i {
+   color: #004a9f;
+   margin-right: 8px;
+}
 
-
-/********** RESPONSIVENESS FOOTER **********/
-@media (max-width: 576px) {
+/* Ensure that footer content doesn't get too crowded on small screens */
+@media (max-width: 767px) {
   .footer .contact-details {
       flex-direction: column;
       align-items: flex-start;
   }
-  .footer .contact-details div {
-      margin-bottom: 0.5rem;
+  
+  .footer .contact-details > div {
+      color: #004a9f;
+      margin-bottom: 5px; /* Adds space between items when stacked */
+  }
+
+  .footer .col-md-8, .footer .col-md-4 {
+      text-align: center;
+      margin-bottom: 10px;
   }
 }
 
+/* Adjustments for medium screens and up */
+@media (min-width: 768px) {
+  .footer {
+      padding: 10px 50px; /* Increased padding on larger screens */
+  }
+
+  .footer .contact-details {
+      justify-content: space-between; /* Space items nicely */
+  }
+
+  .footer .col-md-4 {
+      text-align: right;
+  }
+}
+
+/* Body padding to avoid content being hidden by the footer */
+body {
+  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
+}
+/******************************************************* FOOTER ******************************************************/
+
   
-  /********** SIDEBAR **********/
+  /********** SIDEBAR 
   #sidebar-wrapper {
     min-height: 100vh;
     width: 300px;
@@ -129,7 +146,7 @@
 
   #sidebar-wrapper .list-group {
     width: 100%;
-}
+}**********/
 
 /********** PAGE CONTENT **********/
 #page-content-wrapper {
