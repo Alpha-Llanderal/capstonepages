@@ -1,16 +1,23 @@
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+/*********** HEADER **********/
+header {
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures the header stays on top of other content */
 }
 
-/*********** TOP BANNER / HEADER **********/
-.header-logo img {
-  width: 100%;
-  max-width: 50px;
-  height: auto;
+.fw-bold { /* to make the header font and the word patient portal bold */
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 50px; /* height of your header */
+  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
 }
 
 .portal-container {
@@ -20,50 +27,34 @@
   justify-content: center;
   min-height: 80vh;
   text-align: center;
-}
-
-.portal-logo img {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
-}
-
-.portal-title {
-  margin-top: 1.25rem;
-  font-size: 1.5rem;
-  color: #004a9f;
-  font-weight: bold;
-}
-
-.portal-subtitle {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 1.875rem;
+  margin-top: 2rem;
 }
 
 .card {
-  width: 100%;
+  width: 35%;
   max-width: 1000px;
-  padding: 2rem;
-  margin: 0 auto;
+  padding: 1rem;
+  margin: 0 auto; /* Top and bottom margins are 0, left and right are auto */
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries for Smaller Screens */
-@media (max-width: 576px) {
-  .portal-title {
-    font-size: 1.25rem;
-  }
 
-  .portal-subtitle {
-    font-size: 0.875rem;
-  }
 
+/********** INDEX BODY **********/
+@media (max-width: 768px) {
   .card {
-    padding: 1rem;
+      padding: 20px; /* More padding on smaller screens */
   }
 }
+
+@media (min-width: 769px) {
+  .card {
+      padding: 40px; /* Less padding on larger screens */
+  }
+}
+/********** INDEX BODY **********/
+
 
 /******************************************************* FOOTER ******************************************************/
 .footer {
@@ -127,41 +118,9 @@
   }
 }
 
-/* Body padding to avoid content being hidden by the footer */
-body {
-  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
-}
-/******************************************************* FOOTER ******************************************************/
 
-  
-  /********** SIDEBAR 
-  #sidebar-wrapper {
-    min-height: 100vh;
-    width: 300px;
-    margin-left: -250px;
-    background-color: #f8f9fa;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    border-right: 1px solid #ddd;
-}
 
-  #sidebar-wrapper .list-group {
-    width: 100%;
-}**********/
 
-/********** PAGE CONTENT **********/
-#page-content-wrapper {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    height: 100%;
-}
-
-/* Responsive behavior */
-@media (min-width: 768px) {
-    #sidebar-wrapper {
-        margin-left: 0;
-    }
-}
 
 /********** LANDING PAGE **********/
 .landing-container {
