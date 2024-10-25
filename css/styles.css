@@ -1,26 +1,29 @@
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
 
-/*********** HEADER **********/
-header {
+/*********** GLOBAL STYLES ***********/
+body {
   font-family: 'Poppins', sans-serif;
+  padding-top: 50px; /* Adjust this if the header height changes */
+  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
+  background-color: #f4f4f4;
+}
+
+/*********** HEADER ***********/
+header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000; /* Ensures the header stays on top of other content */
+  font-family: 'Poppins', sans-serif; /* No need to redeclare font-family if it's the same */
 }
 
-.fw-bold { /* to make the header font and the word patient portal bold */
+.fw-bold {
   font-weight: bold;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  padding-top: 50px; /* height of your header */
-  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
-}
-
-.portal-container {
+/********** PORTAL LAYOUT **********/
+.portal-container { /*flexbox, which adapts to different screen sizes by adjusting alignment and spacing dynamically.*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,29 +34,28 @@ body {
 }
 
 .card {
-  width: 35%;
-  max-width: 1000px;
+  width: 35%; /*ensure that elements like cards do not stretch excessively on larger screens*/
+  max-width: 1000px; /*maintaining a visually appealing and functional design.*/
   padding: 1rem;
-  margin: 0 auto; /* Top and bottom margins are 0, left and right are auto */
+  margin: 0 auto;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/********** INDEX BODY **********/
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*Media Queries for Larger Screens*/
   .card {
-      padding: 20px; /* More padding on smaller screens */
+      padding: 20px;
   }
 }
 
 @media (min-width: 769px) {
   .card {
-      padding: 40px; /* Less padding on larger screens */
+      padding: 40px;
   }
 }
 
-/********** FOOTER **********/
-.footer {
+/********** FOOTER ***********/
+.footer { /*flexbox, which adapts to different screen sizes by adjusting alignment and spacing dynamically.*/
   position: fixed;
   left: 0;
   bottom: 0;
@@ -62,8 +64,7 @@ body {
   color: black;
   text-align: center;
   z-index: 1000;
-  padding: 10px 15px; /* Default padding */
-
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,69 +72,37 @@ body {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
- .footer a {
-   color: #004a9f;
-   text-decoration: none;
+.footer a {
+  color: #004a9f;
+  text-decoration: none;
 }
 
- .footer .contact-details i {
-   color: #004a9f;
-   margin-right: 8px;
-}
-
-/* Ensure that footer content doesn't get too crowded on small screens */
 @media (max-width: 767px) {
-  .footer .contact-details {
-      flex-direction: column;
-      align-items: flex-start;
+  .footer {
+    flex-direction: column;
   }
-  
   .footer .contact-details > div {
-      color: #004a9f;
-      margin-bottom: 5px; /* Adds space between items when stacked */
-  }
-
-  .footer .col-md-8, .footer .col-md-4 {
-      text-align: center;
-      margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 }
 
-/* Adjustments for medium screens and up */
 @media (min-width: 768px) {
   .footer {
-      padding: 10px 50px; /* Increased padding on larger screens */
+    padding: 10px 50px;
   }
-
-  .footer .contact-details {
-      justify-content: space-between; /* Space items nicely */
-  }
-
   .footer .col-md-4 {
-      text-align: right;
+    text-align: right;
   }
 }
 
-/* ALERT */
-@media (max-width: 768px) {
-  .alert {
-      margin-top: 20px; /* Less space on smaller screens */
-  }
+/********** UTILITIES ***********/
+.alert, .accordion-button, .accordion-body, .modal-content, .table {
+  margin-top: 20px; /* Common top margin for better consistency */
 }
-
-@media (min-width: 769px) {
-  .alert {
-      margin-top: 50px; /* More space on larger screens */
-  }
+.table {
+  background-color: white;
+  width: 100%;
 }
-
-/* MAIN */
-@media (max-width: 768px) {
-  .accordion-button {
-      padding: 0.5rem 1rem; /* Smaller padding for smaller screens */
-  }
-  .accordion-body {
-      padding: 1rem; /* Adequate padding for readability */
-  }
+.modal-content {
+  padding: 20px;
 }
-
