@@ -39,8 +39,6 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /********** INDEX BODY **********/
 @media (max-width: 768px) {
   .card {
@@ -53,10 +51,8 @@ body {
       padding: 40px; /* Less padding on larger screens */
   }
 }
-/********** INDEX BODY **********/
 
-
-/******************************************************* FOOTER ******************************************************/
+/********** FOOTER **********/
 .footer {
   position: fixed;
   left: 0;
@@ -118,16 +114,26 @@ body {
   }
 }
 
-
-
-
-
-/********** LANDING PAGE **********/
-.landing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    text-align: center;
+/* ALERT */
+@media (max-width: 768px) {
+  .alert {
+      margin-top: 20px; /* Less space on smaller screens */
   }
+}
+
+@media (min-width: 769px) {
+  .alert {
+      margin-top: 50px; /* More space on larger screens */
+  }
+}
+
+/* MAIN */
+@media (max-width: 768px) {
+  .accordion-button {
+      padding: 0.5rem 1rem; /* Smaller padding for smaller screens */
+  }
+  .accordion-body {
+      padding: 1rem; /* Adequate padding for readability */
+  }
+}
+
