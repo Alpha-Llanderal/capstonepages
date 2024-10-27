@@ -1,108 +1,199 @@
-@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/*********** GLOBAL STYLES ***********/
+/* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  padding-top: 50px; /* Adjust this if the header height changes */
-  padding-bottom: 60px; /* Adjust based on the actual height of your footer */
-  background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 70px; /* Height of the fixed header */
+    padding-bottom: 70px; /* Height of the footer */
 }
 
-/*********** HEADER ***********/
+/* Header */
 header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Ensures the header stays on top of other content */
-  font-family: 'Poppins', sans-serif; /* No need to redeclare font-family if it's the same */
+    font-family: 'Poppins', sans-serif;
+    z-index: 1000;
 }
 
 .fw-bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-/********** PORTAL LAYOUT **********/
-.portal-container { /*flexbox, which adapts to different screen sizes by adjusting alignment and spacing dynamically.*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.card {
-  width: 35%; /*ensure that elements like cards do not stretch excessively on larger screens*/
-  max-width: 1000px; /*maintaining a visually appealing and functional design.*/
-  padding: 1rem;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) { /*Media Queries for Larger Screens*/
-  .card {
-      padding: 20px;
-  }
-}
-
-@media (min-width: 769px) {
-  .card {
-      padding: 40px;
-  }
-}
-
-/********** FOOTER ***********/
-.footer { /*flexbox, which adapts to different screen sizes by adjusting alignment and spacing dynamically.*/
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  text-align: center;
-  z-index: 1000;
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #ddd;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    z-index: 1000;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer a {
-  color: #004a9f;
-  text-decoration: none;
+    color: #004a9f;
+    text-decoration: none;
 }
 
+.footer .contact-details i {
+    color: #004a9f;
+    margin-right: 5px;
+}
+
+/* Responsive Styles */
 @media (max-width: 767px) {
-  .footer {
-    flex-direction: column;
-  }
-  .footer .contact-details > div {
-    margin-bottom: 5px;
-  }
+    .footer .contact-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer .contact-details > div {
+        margin-bottom: 5px;
+    }
+
+    .footer .col-md-8, .footer .col-md-4 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .alert {
+        margin-top: 20px;
+    }
 }
 
 @media (min-width: 768px) {
-  .footer {
-    padding: 10px 50px;
-  }
-  .footer .col-md-4 {
-    text-align: right;
-  }
+    .footer {
+        padding: 10px 50px;
+    }
+
+    .footer .contact-details {
+        justify-content: space-between;
+    }
+
+    .footer .col-md-4 {
+        text-align: right;
+    }
+
+    .alert {
+        margin-top: 50px;
+    }
 }
 
-/********** UTILITIES ***********/
-.alert, .accordion-button, .accordion-body, .modal-content, .table {
-  margin-top: 20px; /* Common top margin for better consistency */
+/* Accordion and Forms */
+.accordion-button {
+    padding: 0.75rem 1.25rem;
 }
-.table {
-  background-color: white;
-  width: 100%;
+
+.accordion-body {
+    padding: 1.25rem;
 }
-.modal-content {
-  padding: 20px;
+
+@media (max-width: 768px) {
+    .accordion-button {
+        padding: 0.5rem 1rem;
+    }
+    .accordion-body {
+        padding: 1rem;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    z-index: 1000;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+    color: #004a9f;
+    text-decoration: none;
+}
+
+.footer .contact-details i {
+    color: #004a9f;
+    margin-right: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .footer .contact-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer .contact-details > div {
+        margin-bottom: 5px;
+    }
+
+    .footer .col-md-8, .footer .col-md-4 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .alert {
+        margin-top: 90px;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 10px 50px;
+    }
+
+    .footer .contact-details {
+        justify-content: space-between;
+    }
+
+    .footer .col-md-4 {
+        text-align: right;
+    }
+
+    .alert {
+        margin-top: 90px;
+    }
+}
+
+/* Accordion and Forms */
+.accordion-button {
+    padding: 0.75rem 1.25rem;
+}
+
+.accordion-body {
+    padding: 1.25rem;
 }
