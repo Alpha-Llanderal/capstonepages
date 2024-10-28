@@ -1,3 +1,26 @@
+<?php
+session_start();
+include 'db_connection.php'; // Include the database connection file
+
+// Check if user is logged in
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    // Query to fetch the user's name
+    $query = "SELECT name FROM users WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($user_name);
+    $stmt->fetch();
+    $stmt->close();
+} else {
+    // Redirect to login if not logged in
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +44,10 @@
     <div class="container d-flex justify-content-between align-items-center">
         <h1 class="h5 mb-0 fw-bold">HealthHub Connect</h1>
         <div>
-            <span>Hi, Alpha</span>
-            <button class="btn btn-outline-light" id="logoutButton"><i class="bi bi-box-arrow-right"></i> Logout</button>
+            <span>Hi, <?php echo htmlspecialchars($user_name); ?></span>
+            <a href="login.html" class="btn btn-outline-light" role="button" aria-label="Logout and redirect to login page">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
         </div>
     </div>
 </header>
